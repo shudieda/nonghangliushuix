@@ -101,15 +101,15 @@
 
     <div contenteditable class="yhls3" style="text-shadow: 0px 1px rgb(60,60,60); position: absolute; display: inline-block; left: 912px;top: 332px;color: rgb(60,60,60);font-size: 48px;">本币</div>
 
-    <div class="aa" tabindex="1">
+    <div class="aa" id="aa" tabindex="1">
       近一周
     </div>
 
-    <div class="bb" tabindex="2">
+    <div class="bb" id="bb" tabindex="2">
       近一月
     </div>
 
-    <div class="cc" tabindex="3">
+    <div class="cc" id="cc" tabindex="3">
       近三月
     </div>
 
@@ -142,7 +142,16 @@
           type="button">添加收入信息
   </button>
 
-  <div style="position: absolute;top: 600px;font-size: 40px;left: 250px;font-weight: 600;">点击按钮添加支出/收入信息后点击界面内容即可修改信息，删除信息按钮在对应信息的最右边（右边三角上面）
+  <div style="display: inline-block; position: absolute;right: 0px;top: 600px; font-size: 50px;">流水时间：
+    <select style="font-size: 50px; width: 700px;height: 100px;" id="pd" onchange="select_event(this.options[this.selectedIndex].value);">
+      <option class="aaa" value="0">近一周</option>
+      <option class="bbb" value="1">近一月</option>
+      <option class="ccc" value="2">近三月</option>
+
+    </select>
+  </div>
+
+  <div style="position: absolute;top: 750px;font-size: 40px;left: 250px;font-weight: 600;">点击按钮添加支出/收入信息后点击界面内容即可修改信息，删除信息按钮在对应信息的最右边（右边三角上面）
 
   </div>
 
@@ -176,6 +185,29 @@
   var ua = navigator.userAgent;
   if(ua !== "Mozilla/5.0 (Windows NT 10.0; Win64; x64; ed)"){
     document.querySelector("body").style="display: none;"
+  }
+</script>
+
+<script>
+  function select_event(value) {
+    document.getElementById("aa").style.color = "rgb(1,1,1)";
+    document.getElementById("aa").style.backgroundColor = "rgb(255,255,255)";
+
+    document.getElementById("bb").style.color = "rgb(1,1,1)";
+    document.getElementById("bb").style.backgroundColor = "rgb(255,255,255)";
+
+    document.getElementById("cc").style.color = "rgb(1,1,1)";
+    document.getElementById("cc").style.backgroundColor = "rgb(255,255,255)";
+    if (value === "0") {
+      document.getElementById("aa").style.color = "rgb(255,255,255)";
+      document.getElementById("aa").style.backgroundColor = "rgb(229,173,79)";
+    } else if (value === "1") {
+      document.getElementById("bb").style.color = "rgb(255,255,255)";
+      document.getElementById("bb").style.backgroundColor = "rgb(229,173,79)";
+    } else if (value === "2") {
+      document.getElementById("cc").style.color = "rgb(255,255,255)";
+      document.getElementById("cc").style.backgroundColor = "rgb(229,173,79)";
+    }
   }
 </script>
 
